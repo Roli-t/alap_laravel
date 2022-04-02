@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\BejegyzesekController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/task/bejegyzesek', [BejegyzesekController::class, 'bejegyzesek']);
+
+Route::get('/task/new', [BejegyzesekController::class, 'ujbejegyzes']);
+Route::post('/api/new', [BejegyzesekController::class, 'bejegyzes']);
